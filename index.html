@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小麦种质资源数据库</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- ==================== 导航栏 ==================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">🌾 小麦种质资源数据库</a>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link active">首页</a></li>
+        <li><a href="#database" class="nav-link">数据库</a></li>
+        <li><a href="#contact" class="nav-link">联系方式</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="切换菜单">☰</button>
+    </div>
+  </nav>
+
+  <!-- ==================== 首页 / Hero ==================== -->
+  <section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">小麦种质资源数据库</h1>
+      <p class="hero-subtitle">
+        收录 <strong>2,193</strong> 份小麦种质资源材料，涵盖产量性状、抗病性状、抗旱性状、抗寒性状及品质性状等多维度表型数据，为小麦遗传育种与种质创新提供数据支撑。
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">2193</span>
+          <span class="stat-label">品种资源</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">26</span>
+          <span class="stat-label">来源省份</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">18</span>
+          <span class="stat-label">表型指标</span>
+        </div>
+      </div>
+      <a href="#database" class="hero-btn">进入数据库 →</a>
+    </div>
+  </section>
+
+  <!-- ==================== 数据库 ==================== -->
+  <section id="database" class="database-section">
+    <div class="section-header">
+      <h2 class="section-title">种质资源数据库</h2>
+      <p class="section-desc">通过品种名称、省份、年代等信息快速检索目标种质资源</p>
+    </div>
+
+    <div class="search-panel">
+      <div class="search-box">
+        <input type="text" id="searchInput" class="search-input" placeholder="输入品种名称搜索...">
+        <button id="searchBtn" class="search-btn">🔍 搜索</button>
+      </div>
+      <div class="filter-row">
+        <div class="filter-group">
+          <label for="filterProvince" class="filter-label">省份筛选</label>
+          <select id="filterProvince" class="filter-select">
+            <option value="">全部省份</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="filterYearStart" class="filter-label">年代范围</label>
+          <div class="year-range">
+            <input type="number" id="filterYearStart" class="filter-input" placeholder="起始年" min="1995" max="2024">
+            <span class="year-sep">—</span>
+            <input type="number" id="filterYearEnd" class="filter-input" placeholder="结束年" min="1995" max="2024">
+          </div>
+        </div>
+        <button id="resetBtn" class="reset-btn">重置筛选</button>
+      </div>
+      <div class="result-info">
+        共 <span id="resultCount">0</span> 条结果
+      </div>
+    </div>
+
+    <div id="loadingIndicator" class="loading">
+      <div class="spinner"></div>
+      <p>正在加载数据...</p>
+    </div>
+
+    <div id="cardGrid" class="card-grid"></div>
+    <div id="pagination" class="pagination"></div>
+  </section>
+
+  <!-- ==================== 联系方式 ==================== -->
+  <section id="contact" class="contact-section">
+    <div class="section-header">
+      <h2 class="section-title">联系方式</h2>
+      <p class="section-desc">如需更多信息或合作，欢迎通过以下方式联系</p>
+    </div>
+    <div class="contact-cards">
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <h3>电子邮箱</h3>
+        <p>wheat-db@example.edu.cn</p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">🏢</div>
+        <h3>单位地址</h3>
+        <p>XX农业大学 农学院<br>小麦遗传育种实验室</p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">📞</div>
+        <h3>联系电话</h3>
+        <p>010-XXXX-XXXX</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 页脚 ==================== -->
+  <footer class="footer">
+    <p>&copy; 2024 小麦种质资源数据库 | 仅供科研展示使用 | 数据为模拟数据</p>
+  </footer>
+
+  <!-- 详情弹窗 -->
+  <div id="detailModal" class="modal">
+    <div class="modal-content">
+      <button id="modalClose" class="modal-close">&times;</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
